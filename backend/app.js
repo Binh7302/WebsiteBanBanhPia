@@ -5,7 +5,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const helmet = require('helmet');
+const rateLimit = require("express-rate-limit");
 
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100 // limit each IP to 100 requests per windowMs
+});
+
+//routes
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 
@@ -14,6 +23,7 @@ require('dotenv').config();
 
 app.listen(process.env.PORT, () => { console.log('Server started on port ' + process.env.PORT) });
 
+app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,12 +40,12 @@ app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGODB_URI, {  
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-.then(() => console.log('>>>>>>>>>> DB Connected!!!!!!'))
-.catch(err => console.log('>>>>>>>>> DB Error: ', err));
+    .then(() => console.log('>>>>>>>>>> DB Connected!!!!!!'))
+    .catch(err => console.log('>>>>>>>>> DB Error: ', err));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
