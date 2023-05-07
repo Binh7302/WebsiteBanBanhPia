@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&family=Montserrat&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
+  background-color: rgba(245, 245, 245, 0.3);
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 25rem;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  border: 1px solid #dadce0;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.box .google-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.box h2 {
+  margin: 1rem 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  color: #202124;
+  font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.box .btn {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.box a {
+  width: 200px;
+  height: 60px;
+  background: url('../images/btn_google_signin_dark_normal_web.png') center no-repeat;
+}
+
+.box a:hover {
+  background: url('../images/btn_google_signin_dark_focus_web.png') center no-repeat;
+  cursor: pointer;
+}
+
+.box a:focus {
+  background: url('../images/btn_google_signin_dark_pressed_web.png') center no-repeat;
+}
+
+/* MODAL */
+.delete_m {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  margin-top: 2.5rem;
+}
+
+.delete_m .delete_cont {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  height: 200px;
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.delete_m .delete_cont.display {
+  display: flex;
+}
+
+.delete_m .delete_cont .delete_title {
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+  background: #3a8ffe;
+  text-align: center;
+  justify-content: center;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+.delete_m .delete_cont .delete_txt {
+  padding: 18px;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  color: black;
+}
+
+.delete_m .delete_cont .delete_action {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.delete_m .delete_cont .delete_action .delete_btn {
+  width: 120px;
+  text-decoration: none;
+  line-height: 35px;
+  display: inline-block;
+  font-weight: medium;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  opacity: 1;
+}
+
+.delete_m .delete_cont .delete_action .delete_btn.delete {
+  background: #FF1046;
+}
+
+.delete_m .delete_cont .delete_action .delete_btn.delete:hover {
+  background: #ff1048c5;
+  cursor: pointer;
+}
+
+
+.delete_m .delete_cont .delete_action .delete_btn.cancel {
+  background: #9658fe;
+}
+
+.delete_m .delete_cont .delete_action .delete_btn.cancel:hover {
+  background: #9558fec5;
+  cursor: pointer;
+}
+
+
+/* BUTTON TABLE */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table thead tr th {
+  min-width: 130px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #dee2e685;
+  color: black;
+}
+
+table tbody tr td {
+  font-size: 16px;
+  letter-spacing: 0.35px;
+  color: black;
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid #dee2e685;
+}
+
+table tbody tr td .btn-table {
+  width: 130px;
+  text-decoration: none;
+  line-height: 35px;
+  display: inline-block;
+  background-color: #FF1046;
+  font-weight: medium;
+  color: #fff;
+  text-align: center;
+  user-select: none;
+  border: 1px solid transparent;
+  font-size: 14px;
+  opacity: 1;
+}
+
+table tbody tr td .btn-table:hover {
+  cursor: pointer;
+  background-color: #ff1048b3;
+}
