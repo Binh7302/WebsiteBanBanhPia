@@ -10,7 +10,7 @@ exports.getProduct = async () => {
             categoryID: item.categoryID,
             name: item.name,
             price: item.price,
-            quantity: item.quantity,
+            amountID: item.amountID,
             description: item.description,
             status: item.status,
             weigth: item.weigth,
@@ -58,7 +58,7 @@ exports.getProductById = async (id) => {
             categoryID: data.categoryID,
             name: data.name,
             price: data.price,
-            quantity: data.quantity,
+            amountID: data.amountID,
             description: data.description,
             status: data.status,
             weigth: data.weigth,
@@ -95,3 +95,28 @@ exports.findProductByName = async (name) => {
     return data;
 }
 
+//tìm kiếm sản phẩm
+exports.getProductBySearchValue = async (value) => {
+    let data = await productService.getProductBySearchValue(value);
+    data = data.map((item, index) => {
+        item = {
+            _id: item._id,
+            categoryID: item.categoryID,
+            name: item.name,
+            price: item.price,
+            amountID: item.amountID,
+            description: item.description,
+            status: item.status,
+            weigth: item.weigth,
+            ingredient: item.ingredient,
+            productManual: item.productManual,
+            preserve: item.preserve,
+            expirationDate: item.expirationDate,
+            brand: item.brand,
+            avatarImage: item.avatarImage,
+            index: index + 1
+        }
+        return item;
+    });
+    return data;
+}

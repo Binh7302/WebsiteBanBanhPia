@@ -55,7 +55,7 @@
         text-align: left;
     }
     #sidebar > ul > li > a i{
-        /*display: none !important;*/
+        display: none !important;
     }
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
@@ -74,9 +74,9 @@
     #sidebar > ul > li > ul.sub > li > a {
         background: transparent !important ;
     }
-    #sidebar > ul > li > ul.sub > li > a:hover {
+    /* #sidebar > ul > li > ul.sub > li > a:hover {
         
-    }
+    } */
 
 
     /* sidebar */

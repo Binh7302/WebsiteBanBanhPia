@@ -40,7 +40,7 @@ router.post('/create-order', async (req, res, next) => {
             for (let i = 0; i < body.Cart.length; i++) {
                 const product = await productController.getProductById(body.Cart[i].id);
                 if (product && product.status === 0) {
-                    if (body.Cart[i].amount > product.quantity) {
+                    if (product.amountID.number != 0) {
                         return res.status(200).send(false);
                     }
                 } else {
@@ -50,7 +50,7 @@ router.post('/create-order', async (req, res, next) => {
             //create order
             let flagTotal = 0;
             for (let i = 0; i < body.Cart.length; i++) {
-                flagTotal += body.Cart[i].price;
+                flagTotal += body.Cart[i].price * body.Cart[i].amount;
             }
             const status = await statusController.getStatusByNumber(0);
             const date = new Date();

@@ -72,3 +72,22 @@ exports.update = async (id, body) => {
 exports.insert = async (body) => {
     await orderService.insert(body);
 }
+
+//tìm kiếm đơn hàng
+exports.getOrderBySearchValue = async (searchValue, processing) => {
+    let data = await orderService.getOrderBySearchValue(searchValue, processing);
+    data = data.map((item, index) => {
+        item = {
+            _id: item._id,
+            statusID: item.statusID,
+            createdAt: date.format(item.createdAt, 1),
+            total: item.total,
+            name: item.name,
+            phonenumber: item.phonenumber,
+            address: item.address,
+            index: index + 1
+        }
+        return item;
+    })
+    return data;
+}

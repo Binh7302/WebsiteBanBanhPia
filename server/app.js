@@ -5,12 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const helmet = require('helmet');
 const rateLimit = require("express-rate-limit");
-const crypto = require('crypto');
+const cors = require('cors');
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
+  windowMs: 10 * 60 * 1000, // 10 minutes
   max: 100 // limit each IP to 100 requests per windowMs
 });
 
@@ -20,7 +19,7 @@ var adminRouter = require('./routes/admin');
 
 var app = express();
 require('dotenv').config();
-const DOMAIN = process.env.IP + ':' + process.env.PORT;
+
 const redisStore = require('connect-redis').default;
 const clientRedis = require('./middleware/redis');
 const sessStore = new redisStore({ client: clientRedis });
@@ -29,7 +28,7 @@ const sessStore = new redisStore({ client: clientRedis });
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// app.use(helmet());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -44,10 +43,13 @@ app.use(session({
   cookie: {
     secure: false,
     httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 2
+    // sameSite: 'strict',
+    sameSite: 'none',
+    maxAge: 1000 * 60 * 60 * 1
   }
 }));
-
+app.use(limiter);
+app.use(cors());
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
 

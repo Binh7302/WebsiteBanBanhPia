@@ -1,0 +1,179 @@
+<header>
+    <!--external css-->
+    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href='/assets/css/bootstrap.css' />
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/style-responsive.css" rel="stylesheet">
+    <link href="/assets/css/table-responsive.css" rel="stylesheet">
+</header>
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <!--logo start-->
+        <a href="/admin/product" class="logo"><b>BANHPIALONGAN</b></a>
+        <!--logo end-->
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="/admin/logout-admin">Đăng xuất</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
+
+    <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+
+                <p class="centered"><a href="/admin/product"><img src="/images/logo@2xdone.png" class="img-circle"
+                            width="150"></a></p>
+                <h5 class="centered">banhpialongan.com</h5>
+
+                <li class="sub-menu">
+                    <a class="active" href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span>Danh sách</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/admin/product">Sản phẩm</a></li>
+                        <li class="active"><a href="/admin/category">Thể loại</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-folder"></i>
+                        <span>Biểu mẫu</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/admin/add-product">Thêm sản phẩm</a></li>
+                        <li><a href="/admin/add-category">Thêm thể loại</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Đơn hàng</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/admin/order-all">Tất cả</a></li>
+                        <li><a href="/admin/order-processing">Đang xử lý</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Thống kê</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/admin/product-stat">Sản phẩm</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+    <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="cont" style="display: flex; justify-content: center; align-items: center;">
+
+            </div>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <div class="content-panel">
+                        <h4><i class="fa fa-angle-right"></i>Danh sách thể loại</h4>
+                        <section id="no-more-tables">
+                            <table class="table table-bordered table-striped table-condensed cf">
+                                <thead class="cf">
+                                    <tr>
+                                        <th class="numeric">STT</th>
+                                        <th class="numeric">Tên thể loại</th>
+                                        <th class="numeric">Hình ảnh</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each data}}
+                                    <tr>
+                                        <td class="numeric" data-title="STT">{{this.index}}</td>
+                                        <td class="numeric" data-title="Tên thể loại">{{this.name}}</td>
+                                        <td class="numeric" data-title="Hình ảnh">
+                                            <img src="{{this.image}}" width="150" height="100">
+                                        </td>
+                                        <td>
+                                            <form action="/admin/{{this._id}}/detail-category" method="get">
+                                                <button class="btn-table edit" type="submit"></i>Sửa</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <button onclick="delete_open_modal('{{this._id}}','{{this.index}}','{{this.name}}')"
+                                                class="btn-table delete">Xóa</button>
+                                            <form action="/admin/{{this._id}}/delete-category" method="post">
+                                                <button hidden class="del_btn" type="submit"></i>Xóa</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </section>
+                    </div><!-- /content-panel -->
+                </div><!-- /col-lg-12 -->
+            </div><!-- /row -->
+            <div class="delete_m">
+                <div class="delete_cont">
+                    <div class="delete_title">
+                        <p>Xóa sản phẩm</p>
+                    </div>
+                    <div class="delete_txt" id="delete_txt">
+                        <p>Bạn có chắc chắn muốn xóa thể loại này: </p>
+                    </div>
+                    <div class="delete_action">
+                        <button onclick="delete_cancel()" class="delete_btn cancel">Hủy</button>
+                        <button onclick="onDelete()" class="delete_btn delete" type="submit">Xóa</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <! --/wrapper -->
+    </section><!-- /MAIN CONTENT -->
+
+    <!--main content end-->
+</section>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/assets/js/jquery.scrollTo.min.js"></script>
+<script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="/assets/js/common-scripts.js"></script>
+
+<!--script for this page-->
+<script src="/javascripts/modal_delete.js">
+
+</script>
+
+
+</html>

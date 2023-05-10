@@ -38,7 +38,8 @@ exports.productStat = async () => {
         let flag = [];
         flag = await orderDetailModel.aggregate([
             { $match: { orderID: cart[i]._id } },
-            { $group: { _id: "$productID", amount: { $sum: "$quantityPurchased" }, total: { $sum: { $multiply: ["$pricePurchased", "$quantityPurchased"] } } } }
+            { $group: { _id: "$productID", amount: { $sum: "$quantityPurchased" }, total: { $sum: { $multiply: ["$pricePurchased", "$quantityPurchased"] } } } },
+            { $sort: { _id: 1} }
         ]);
         //flag = [{_id: productID1, amount: 1, total: 10}, {_id: productID2, amount: 5, total: 100}, ... ];
         //đưa mảng flag vào mảng productID

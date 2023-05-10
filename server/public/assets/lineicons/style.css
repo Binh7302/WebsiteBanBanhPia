@@ -14,7 +14,7 @@
 [data-icon]:before {
 	font-family: 'linecons';
 	content: attr(data-icon);
-	speak: none;
+	/* speak: none; */
 	font-weight: normal;
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
@@ -24,7 +24,7 @@
 [class^="li_"]:before, [class*=" li_"]:before {
 	font-family: 'linecons';
 	font-style: normal;
-	speak: none;
+	/* speak: none; */
 	font-weight: normal;
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;

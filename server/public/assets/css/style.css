@@ -215,7 +215,7 @@ hr {
 
 ul.top-menu > li > .logout {
 	color: #f2f2f2;
-	font-size: 15px;
+	font-size: 13px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border: 1px solid #64c3c2 !important;
@@ -556,7 +556,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .dropdown-menu.tasks-bar .task-info .percent {
     display: inline-block;
-    float: right;
+    /* float: right; */
     font-size: 13px;
     font-weight: 600;
     padding-left: 10px;
@@ -875,8 +875,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	padding-top: 20px;
 }
 
-.mleft {
-}
+/* .mleft {
+} */
 
 .border-head h3 {
     margin-top: 20px;
@@ -1817,7 +1817,7 @@ label {
     -moz-transition: left 0.25s ease-out;
     -o-transition: left 0.25s ease-out;
     transition: left 0.25s ease-out;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
 }
 .has-switch > div.switch-off {
     left: -63%;
@@ -1859,7 +1859,7 @@ label {
     -moz-transition: 0.25s ease-out;
     -o-transition: 0.25s ease-out;
     transition: 0.25s ease-out;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
 }
 .has-switch span.switch-left {
     border-radius: 30px 0 0 30px;
@@ -1892,7 +1892,7 @@ label {
     -moz-transition: 0.25s ease-out;
     -o-transition: 0.25s ease-out;
     transition: 0.25s ease-out;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
 }
 .switch-square {
     border-radius: 6px;

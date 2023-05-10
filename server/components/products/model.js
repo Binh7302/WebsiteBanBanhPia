@@ -7,7 +7,6 @@ const productSchema = new Schema({
     categoryID: { type: ObjectId, ref: 'category' },
     name: { type: String },
     price: { type: Number },
-    quantity: { type: Number },
     description: { type: String },
     status: { type: Number },
     weigth: { type: Number },
@@ -16,7 +15,8 @@ const productSchema = new Schema({
     preserve: { type: String },
     expirationDate: { type: String },
     brand: { type: String },
-    avatarImage: { type: String }
+    avatarImage: { type: String },
+    amountID: { type: ObjectId, ref: 'amount' }
 });
 
 module.exports = mongoose.model('product', productSchema);
