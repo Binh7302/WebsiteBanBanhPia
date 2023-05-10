@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+.detailContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 100px auto;
+  box-shadow: 0 0 5px #ccc;
+}
+.details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px 0;
+}
+.details .big-img {
+  max-width: 500px;
+  min-width: 290px;
+  overflow: hidden;
+  margin: 10px;
+}
+.big-img img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.details .box {
+  max-width: 500px;
+  min-width: 290px;
+  margin: 10px;
+}
+.box .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.box .row h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding-right: 6px;
+}
+.box .row span {
+  color: crimson;
+  font-size: 15pt;
+}
+.box p {
+  line-height: 0.8;
+  margin: 15px 0;
+}
+.thumb {
+  max-width: 100%;
+  max-height: 100px;
+  display: flex;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.thumb img {
+  max-width: 90px;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+.thumb img.active {
+  opacity: 1;
+  border: 1px solid lightseagreen;
+}
+.box .cart {
+  background: #333;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 25px;
+  margin-top: 25px;
+  display: flex;
+}
+.box .cart img {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.formatDetail {
+  word-spacing: 1px;
+  line-height: 10em;
+}
+.carticonDetail {
+  width: 50px;
+  height: 30px;
+}
+@media (max-width: 500px) {
+  .thumb {
+    height: 50px;
+  }
+  .thumb img {
+    width: 50px;
+  }
+  .big-img {
+    width: 300px;
+    height: 300px;
+  }
+}

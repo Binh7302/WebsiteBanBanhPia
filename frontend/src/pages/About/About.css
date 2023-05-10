@@ -1,0 +1,27 @@
+.aboutContainer {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.glassAboutContainer {
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(255, 255, 255, 0.19);
+}
+.glassAboutContainer h2 {
+  margin-bottom: 20px;
+}
+.glassAboutContainer p {
+  margin-bottom: 20px;
+}

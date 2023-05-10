@@ -1,0 +1,136 @@
+table,
+th,
+td {
+  border: 1px solid #fff;
+  text-align: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.img-cart {
+  width: 150px;
+  height: 100px;
+}
+.cartContainer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  background-color: #2a3e53;
+  padding: 50px;
+}
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+.title {
+  padding-top: 20px;
+  margin-bottom: 10px;
+  color: #00dfc4;
+}
+.paymentButton {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.table .nameTB {
+  width: 300px;
+  padding: 5px;
+}
+.table .imgTB {
+  width: 200px;
+  padding: 5px;
+}
+.table .priceTB {
+  width: 80px;
+  padding: 5px;
+}
+.table .amountTB {
+  width: 100px;
+  padding: 5px;
+}
+.table .btnTB {
+  width: 50px;
+}
+.table .totalTB {
+  width: 100px;
+  padding: 5px;
+}
+.deceaseBtn {
+  width: 15px;
+  height: 20px;
+  margin-right: 5px;
+}
+.inceaseBtn {
+  width: 15px;
+  height: 20px;
+  margin-left: 5px;
+}
+.amount {
+  padding-left: 10px;
+}
+.tableBody tr td {
+  padding: 5px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.paymentButton {
+  padding: 8px;
+  color: white;
+  background-color: rgb(180, 137, 45);
+  cursor: pointer;
+}
+.paymentButton:hover {
+  background-color: snow;
+  color: black;
+}
+
+.titleTB {
+  background-color: #00dfc4;
+  color: white;
+}
+.totalPrice {
+  background-color: red;
+  color: white;
+}
+.tableBody {
+  background-color: white;
+}
+.tableBody:nth-child(2n) {
+  background-color: rgb(230, 225, 225);
+}
+@media screen and (max-width: 800px) {
+  .img-cart {
+    width: 100px;
+    height: 70px;
+  }
+  .table .nameTB {
+    width: 200px;
+    padding: 5px;
+  }
+  .table .imgTB {
+    width: 100px;
+    padding: 5px;
+  }
+  .table .priceTB {
+    width: 50px;
+    padding: 5px;
+  }
+  .table .amountTB {
+    width: 80px;
+    padding: 5px;
+  }
+  .table .btnTB {
+    width: 40px;
+  }
+  .table .totalTB {
+    width: 100px;
+    padding: 5px;
+  }
+}

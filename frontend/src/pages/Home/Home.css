@@ -1,0 +1,201 @@
+.containerHome {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bannerContainer {
+  position: relative;
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+  object-fit: cover;
+  margin-right: 5%;
+  background-color: aquamarine;
+}
+.each-slide-effect > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  object-fit: cover;
+  height: 500px;
+}
+.indicator {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  border: 1px #666 solid;
+  margin: 0;
+}
+
+.indicator.active {
+  color: #fff;
+  background: rgb(0, 125, 156);
+}
+.interactiveArea {
+  position: absolute;
+  justify-content: space-between;
+}
+.productsArea {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: 90%;
+  height: auto;
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.productContainer {
+  width: calc(100% / 3);
+  height: 400px;
+  padding: 20px;
+}
+.glassContainer .imageContainer img {
+  width: 100%;
+  height: 150px;
+}
+.glassContainer {
+  width: 100%;
+  height: 360px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(255, 255, 255, 0.19);
+}
+.name {
+  text-align: center;
+}
+.name h2 {
+  color: black;
+  padding-top: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.price {
+  text-align: center;
+  padding-top: 20px;
+}
+.price span {
+  color: crimson;
+  padding-top: 40px;
+}
+.searchInputs {
+  margin-top: 20px;
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+.searchContainer {
+  position: relative;
+}
+.searchIcon {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  position: absolute;
+  margin-right: 5%;
+  right: 0;
+}
+.searchIcon img {
+  width: 100%;
+  height: 100%;
+}
+.searchContainer input {
+  background-color: rgba(229, 223, 223, 0.76);
+  border: 0;
+  border-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 18px;
+  padding: 10px;
+  height: 30px;
+  width: 300px;
+  right: 0;
+  position: absolute;
+  margin-right: 5%;
+}
+
+input:focus {
+  outline: none;
+}
+.dataResult {
+  width: 300px;
+  height: 200px;
+  background-color: rgba(229, 223, 223, 1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  margin-right: 5%;
+  margin-top: 10px;
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.dataItem p {
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+}
+
+.dataResult a:hover {
+  background-color: lightgrey;
+}
+
+#clearBtn {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .productContainer {
+    width: 100%;
+    height: 500px;
+  }
+  .glassContainer .imageContainer img {
+    width: 100%;
+    height: 250px;
+  }
+  .glassContainer {
+    height: 460px;
+  }
+  .name h2 {
+    font-size: 25pt;
+  }
+  .price span {
+    font-size: 15pt;
+    color: crimson;
+  }
+  .imageArea div img {
+    height: 300px;
+  }
+  .searchContainer input {
+    width: 250px;
+  }
+  .dataResult {
+    width: 250px;
+}
