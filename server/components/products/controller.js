@@ -1,5 +1,6 @@
 //tầng giao tiếp và xử lý data
 const productService = require('./service');
+const cateService = require('../categories/service');
 
 //lấy danh sách sản phẩm
 exports.getProduct = async () => {
@@ -24,6 +25,33 @@ exports.getProduct = async () => {
         }
         return item;
     });
+    return data;
+}
+
+exports.getProductsForUser = async() => {
+    let products = await productService.getProduct();
+    let categories = await cateService.getCategory();
+    let data = [];
+    let temp = [];
+    for (let index = 0; index < categories.length; index++) {
+        temp = [];
+        let t = {};
+        for (let j = 0; j < products.length; j++) {
+            console.log("a: " + products[j].categoryID._id + " b: " + categories[index]._id);
+            if (products[j].categoryID._id.equals(categories[index]._id) ) {
+                console.log("giống");
+                temp.push(products[j]);
+                console.log("product: " + products[j]);
+                console.log("temp1: " + temp);
+            }
+
+        }
+        console.log("temp: " + temp);
+        if(temp.length>0){
+            t = { category: categories[index], products: temp }
+        }
+        data.push(t);
+    }
     return data;
 }
 
@@ -52,7 +80,7 @@ exports.deleteDev = async (id) => {
 //lấy sản bằng bằng id
 exports.getProductById = async (id) => {
     let data = await productService.getProductById(id);
-    if(data){
+    if (data) {
         data = {
             _id: data._id,
             categoryID: data.categoryID,
@@ -70,7 +98,7 @@ exports.getProductById = async (id) => {
             avatarImage: data.avatarImage
         }
         return data;
-    }else{
+    } else {
         return null;
     }
 }
@@ -81,7 +109,7 @@ exports.getProductByName = async (name) => {
     if (data) {
         if (data.status == 0) {
             return true;
-        }else{
+        } else {
             return data;
         }
     } else {

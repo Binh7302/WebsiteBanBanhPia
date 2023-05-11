@@ -12,7 +12,7 @@ const upload = require('../middleware/upload');
 //http://localhost:8080/product
 router.get('/product', async (req, res, next) => {
     try {
-        const data = await productController.getProduct();
+        const data = await productController.getProductsForUser();
         return res.status(200).json(data);
     } catch (err) {
         return res.status(404).send(err);
