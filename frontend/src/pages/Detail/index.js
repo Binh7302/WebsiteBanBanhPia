@@ -7,12 +7,12 @@ import carticon from "/public/images/icon/cart-icon.png";
 
 function Detail() {
   const id = useParams();
-  console.log("id: " + id.id);
   const [imageIndex, setImageIndex] = useState(0);
 
   const [proId, setProId] = useState("");
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -25,7 +25,6 @@ function Detail() {
   let url = "http://localhost:8080/" + id.id + "/detail-product";
   const getData = () => {
     axios.get(url).then((response) => {
-      console.log(response.data);
       setProId(response.data.product._id);
       setName(response.data.product.name);
       setImage(response.data.product.avatarImage);
@@ -37,6 +36,7 @@ function Detail() {
       setExpirationDate(response.data.product.expirationDate);
       setProductManual(response.data.product.productManual);
       setProductImage(response.data.productImage);
+      setAmount(response.data.product.amountID.name);
     });
   };
   useEffect(() => {
@@ -46,7 +46,6 @@ function Detail() {
 
   const handleTab = (index) => {
     setImageIndex(index);
-    console.log(imageIndex);
   };
 
   const onClick = () => {
@@ -66,6 +65,7 @@ function Detail() {
     if (cart.length === 0) {
       cart.push(p);
       localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Thêm vào giỏ hàng thành công");
     } else {
       let res = cart.find((e) => e.id === p.id);
       if (res === undefined) {
@@ -87,9 +87,6 @@ function Detail() {
       <div className="details">
         <div className="big-img">
           <img src={productImage[imageIndex].image} alt="" />
-        </div>
-
-        <div className="box">
           <div className="thumb">
             {productImage &&
               productImage.map((img, index) => (
@@ -102,6 +99,9 @@ function Detail() {
                 />
               ))}
           </div>
+        </div>
+
+        <div className="box">
           <div className="row">
             <h2>{name}</h2>
             <span>{formatNumber(price)}₫</span>
@@ -124,7 +124,9 @@ function Detail() {
           <p className="formatDetail">
             <b>Hướng dẫn sử dụng:</b> {productManual}
           </p>
-
+          <p className="formatDetail red">
+            <b>Trạng thái:</b> {amount}
+          </p>
           <button onClick={onClick} className="cart">
             <img className="carticonDetail" src={carticon} alt="cart-icon" />{" "}
             <p>Thêm Vào Giỏ Hàng</p>

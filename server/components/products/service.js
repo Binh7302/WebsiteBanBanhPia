@@ -40,3 +40,9 @@ exports.getProductBySearchValue = async (value) => {
     const data = await productModel.find({ name: { $regex: value, $options: 'i' } }).populate('categoryID amountID').sort('categoryID');
     return data;
 }
+
+//lấy danh sách tất cả sản phẩm
+exports.getAllProduct = async () => {
+    const data = await productModel.find().populate('categoryID amountID').sort('categoryID');
+    return data;
+}

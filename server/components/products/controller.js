@@ -37,16 +37,11 @@ exports.getProductsForUser = async() => {
         temp = [];
         let t = {};
         for (let j = 0; j < products.length; j++) {
-            console.log("a: " + products[j].categoryID._id + " b: " + categories[index]._id);
             if (products[j].categoryID._id.equals(categories[index]._id) ) {
-                console.log("giống");
                 temp.push(products[j]);
-                console.log("product: " + products[j]);
-                console.log("temp1: " + temp);
             }
 
         }
-        console.log("temp: " + temp);
         if(temp.length>0){
             t = { category: categories[index], products: temp }
         }
@@ -126,6 +121,33 @@ exports.findProductByName = async (name) => {
 //tìm kiếm sản phẩm
 exports.getProductBySearchValue = async (value) => {
     let data = await productService.getProductBySearchValue(value);
+    data = data.map((item, index) => {
+        item = {
+            _id: item._id,
+            categoryID: item.categoryID,
+            name: item.name,
+            price: item.price,
+            amountID: item.amountID,
+            description: item.description,
+            status: item.status,
+            weigth: item.weigth,
+            ingredient: item.ingredient,
+            productManual: item.productManual,
+            preserve: item.preserve,
+            expirationDate: item.expirationDate,
+            brand: item.brand,
+            avatarImage: item.avatarImage,
+            index: index + 1
+        }
+        return item;
+    });
+    return data;
+}
+
+
+//lấy danh sách tất cả sản phẩm
+exports.getAllProduct = async () => {
+    let data = await productService.getAllProduct();
     data = data.map((item, index) => {
         item = {
             _id: item._id,

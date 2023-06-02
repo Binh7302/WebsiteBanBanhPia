@@ -429,5 +429,14 @@ router.get('/product-stat-json', [authentication.checkLoginAdmin], async (req, r
     }
 });
 
+//http://localhost:8080/admin/detele-order-all123123
+router.get('/detele-order-all123123',  async (req, res, next) => {
+    try {
+        await orderDetailController.deleteAll();
+        res.status(200).send(true);
+    } catch (err) {
+        return res.status(404).send({ message: err.message });
+    }
+});
 
 module.exports = router;

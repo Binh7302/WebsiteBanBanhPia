@@ -50,7 +50,7 @@ exports.productStat = async () => {
         }
     }
     const productStat = [];
-    const p = await productController.getProduct();
+    const p = await productController.getAllProduct();
     //hợp các biến có chung _id, cộng số lượng đã mua và tổng tiền của mỗi đơn hàng
     for (let i = 0; i < p.length; i++) {
         //tạo biến tạm
@@ -68,4 +68,16 @@ exports.productStat = async () => {
         productStat.push(temp);
     }
     return productStat;
+}
+
+exports.deleteAll = async () => {
+    const data1 = await orderDetailModel.find();
+    for (let i = 0; i < data1.length; i++){
+        await orderDetailModel.findByIdAndDelete(data1[i]._id);
+    }
+
+    const data2 = await orderModel.find();
+    for (let i = 0; i < data2.length; i++){
+        await orderModel.findByIdAndDelete(data2[i]._id);
+    }
 }

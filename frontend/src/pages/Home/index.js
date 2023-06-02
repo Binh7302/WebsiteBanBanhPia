@@ -6,22 +6,20 @@ import { NavLink } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import searchIcon from "/public/images/icon/search-icon.png";
-
+import banner1 from "/public/images/logo/banner1.jpg";
+import banner2 from "/public/images/logo/banner2.jpg";
+import banner3 from "/public/images/logo/banner3.jpg";
 import "./Home.css";
 
 function Home() {
   const formatNumber = (n) => {
     return String(n).replace(/(.)(?=(\d{3})+$)/g, "$1,");
   };
-  const images = [
-    "https://f16-zpc.zdn.vn/1742302556357215724/e66baf0a30cfef91b6de.jpg",
-    "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
-  ];
-  const [products, setProducts] = useState([]);
+  const images = [banner1, banner2, banner3];
+  const [data, setData] = useState([]);
   useEffect(() => {
     axios.get(`http://localhost:8080/product`).then((response) => {
-      setProducts(response.data);
+      setData(response.data);
     });
   }, []);
 
@@ -31,8 +29,15 @@ function Home() {
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = products.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+    let searchProducts = [];
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data[i].products.length; j++) {
+        searchProducts.push(data[i].products[j]);
+      }
+    }
+
+    const newFilter = searchProducts.filter((value) => {
+      return value?.name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -57,17 +62,17 @@ function Home() {
           >
             <NavLink to="/">
               <div>
-                <img width="90%" height="450px" alt="" src={images[0]} />
+                <img width="90%x" alt="" src={images[0]} />
               </div>
             </NavLink>
             <NavLink to="/">
               <div>
-                <img width="90%" height="450px" alt="" src={images[1]} />
+                <img width="90%" alt="" src={images[1]} />
               </div>
             </NavLink>
             <NavLink to="/">
               <div>
-                <img width="90%" height="450px" alt="" src={images[2]} />
+                <img width="90%" alt="" src={images[2]} />
               </div>
             </NavLink>
           </Carousel>
@@ -102,27 +107,41 @@ function Home() {
           </div>
         )}
       </div>
-      <div className="productsArea">
-        {products.map((product) => (
-          <div key={product._id} className="productContainer">
-            <NavLink
-              to={"/" + product._id + "/detail-product"}
-              style={{ textDecoration: "none" }}
-            >
-              <div className="glassContainer">
-                <div className="imageContainer">
-                  <img src={product.avatarImage} alt="new" />
-                </div>
-                <div className="name">
-                  <h2>{product.name}</h2>
-                </div>
-                <div className="price">
-                  <span>{formatNumber(product.price)}₫</span>
-                </div>
+      <div className="homeArea">
+        {data &&
+          data.map((d, index) => (
+            <div key={index}>
+              <div className="category">
+                <p>{d.category?.name}</p>
               </div>
-            </NavLink>
-          </div>
-        ))}
+
+              <div className="productsArea">
+                {d.products?.map((p, index) => (
+                  <div key={index} className="productContainer">
+                    <NavLink
+                      to={"/" + p._id + "/detail-product"}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div className="glassContainer">
+                        <div className="imageContainer">
+                          <img src={p?.avatarImage} alt="new" />
+                        </div>
+                        <div className="name">
+                          <p>{p?.name}</p>
+                        </div>
+                        <div className="weigth">
+                          <p>Trọng lượng: {p?.weigth}g</p>
+                        </div>
+                        <div className="price">
+                          <span>{formatNumber(p?.price)}₫</span>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );

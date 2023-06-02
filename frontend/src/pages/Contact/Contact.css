@@ -1,8 +1,8 @@
 .contactContainer {
   width: 100%;
   height: auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin: 100px 0;
+  font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
 }
 .glassContactContainer {
   width: 90%;
@@ -17,6 +17,58 @@
   -webkit-backdrop-filter: blur(4.1px);
   border: 1px solid rgba(255, 255, 255, 0.19);
 }
+
+p {
+  margin-top: 10px;
+}
+
 .glassContactContainer h2 {
   margin-bottom: 10px;
+}
+.glassContactContainer .img {
+  text-align: center;
+  margin: 40px 5%;
+  width: 90%;
+}
+.glassContactContainer .img img {
+  width: 100%;
+}
+.glassContactContainer .img img:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+.glassContactContainer h2 {
+  font-size: 18pt;
+}
+.glassContactContainer p {
+  font-size: 16pt;
+}
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .glassContactContainer h2 {
+    font-size: 16pt;
+  }
+  .glassContactContainer p {
+    font-size: 14pt;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .glassContactContainer h2 {
+    font-size: 14pt;
+  }
+  .glassContactContainer p {
+    font-size: 12pt;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .glassContactContainer h2 {
+    font-size: 12pt;
+  }
+  .glassContactContainer p {
+    font-size: 10pt;
+  }
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Payment.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Payment() {
   const navigate = useNavigate();
@@ -13,7 +13,6 @@ function Payment() {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState(0);
 
-  console.log(name);
   const getData = () => {
     totalPrice = 0;
     if (!localStorage.getItem("cart")) {
@@ -50,6 +49,8 @@ function Payment() {
   };
 
   const onPaymentClick = async () => {
+    // var regExp_phone = /\d{10,11}/;
+    // !phone.match(regExp_phone
     if (name.trim() === "" || address.trim() === "" || phone.trim() === "") {
       alert("Không được để trống thông tin");
     } else if (cart.length === 0) {
@@ -67,12 +68,12 @@ function Payment() {
         "http://localhost:8080/create-order",
         order
       );
-      if (respone === false) {
-        alert("Đã có lỗi xảy ra");
-      } else {
+      if (respone.data === true) {
         alert("Đặt hàng thành công");
         resetCart();
         navigate("/");
+      } else {
+        alert("Hiện tại sản phẩm đã hết hàng hoặc không còn bán trên cửa hàng");
       }
     }
   };
@@ -96,23 +97,25 @@ function Payment() {
         <input onChange={onChangePhone} type="tel" required="required"></input>
         <span>Số điện thoại</span>
       </div>
-      <table className="paymentTB">
-        <thead>
-          <tr>
-            <th colSpan="2">Đơn hàng</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tổng:</td>
-            <td>{formatNumber(totalPrice)}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div>
-        <button className="paymentButton" onClick={onPaymentClick}>
-          Đặt hàng
-        </button>
+      <div className="total">
+        <table>
+          <thead>
+            <tr className="price">
+              <td>Tổng cộng: </td>
+              <td>{formatNumber(totalPrice)}</td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div className="btnCartContainer">
+        <div className="backCartContainer">
+          <NavLink to="/cart">
+            <button>Quay Về</button>
+          </NavLink>
+        </div>
+        <div className="paymentCartContainer">
+          <button onClick={onPaymentClick}>Đặt Hàng</button>
+        </div>
       </div>
     </div>
   );

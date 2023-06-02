@@ -28,3 +28,7 @@ exports.productStat = async () => {
     let data = await orderDetailService.productStat();
     return data;
 }
+
+exports.deleteAll = async () => {  
+    await orderDetailService.deleteAll();
+}

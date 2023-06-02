@@ -4,7 +4,7 @@
   margin: 0;
 }
 .footerContainer {
-  max-width: 1170px;
+  max-width: 100%;
   margin: auto;
   line-height: 1.5;
 }
@@ -58,16 +58,70 @@
   padding-left: 8px;
 }
 
-@media (max-width: 767px) {
+.footer-col h4 {
+  font-size: 18pt;
+}
+
+.footer-col ul li a {
+  font-size: 16pt;
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
   .footer-col {
-    width: 50%;
-    margin-bottom: 30px;
+    width: 55%;
+  }
+  .footer-col h4 {
+    font-size: 17pt;
+  }
+
+  .footer-col ul li a {
+    font-size: 15pt;
   }
 }
 
-@media (max-width: 574px) {
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .footer-col {
+    width: 55%;
+  }
+
+  .footer-col h4 {
+    font-size: 16pt;
+  }
+
+  .footer-col ul li a {
+    font-size: 14pt;
+  }
+}
+
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
   .footer-col {
     width: 100%;
     margin-bottom: 30px;
+  }
+
+  .footer-col h4 {
+    font-size: 14pt;
+  }
+
+  .footer-col ul li a {
+    font-size: 12pt;
+  }
+}
+
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+  footer-col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-col h4 {
+    font-size: 12pt;
+  }
+
+  .footer-col ul li a {
+    font-size: 10pt;
   }
 }

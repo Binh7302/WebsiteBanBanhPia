@@ -7,41 +7,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   gap: 30px;
-  background: #2a3e53;
+  background: #fff;
+  font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
 }
 .inputBox {
   position: relative;
-  width: 250px;
+  width: 40%;
+  margin: 0 30%;
 }
 .inputBox input {
   width: 100%;
   padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: #2a3e53;
+  border: 1px solid black;
+  background: #fff;
   border-radius: 5px;
   outline: none;
-  color: #fff;
-  font-size: 1em;
+  color: black;
+  font-size: 14pt;
   transform: 0.5s;
+  letter-spacing: 0.05em;
 }
 .inputBox span {
   position: absolute;
   left: 0;
-  padding: 10px;
+  padding: 13px 12px;
   pointer-events: none;
-  font-size: 1em;
-  color: rgba(255, 255, 255, 0.25);
+  font-size: 12pt;
+  color: black;
   text-transform: uppercase;
   transition: 0.5s;
+  letter-spacing: 0.05em;
 }
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span {
   color: #2a3e53;
   transform: translateX(10px) translateY(-7px);
-  font-size: 0.65em;
+  font-size: 9pt;
   padding: 0 10px;
   background: #00dfc4;
   border-left: 1px solid #00dfc4;
@@ -54,17 +58,307 @@
   border: 1px solid #00dfc4;
 }
 .titlePayment {
-  color: #00dfc4;
+  color: black;
+  font-size: 22pt;
+  font-weight: lighter;
 }
-.paymentButton {
-  margin-bottom: 15px;
+
+.total {
+  width: 30%;
+  margin: 20px 35%;
+  line-height: 70px;
+  color: black;
+  font-size: 14pt;
 }
-.paymentTB {
-  width: 300px;
-  background-color: #00dfc4;
-  color: white;
+.total .price {
+  font-size: 15pt;
   border: 1px solid black;
-  text-align: center;
-  padding: 5px;
-  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.btnCartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 70%;
+  margin: 20px 15% 0 15%;
+}
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+  .paymentContainer {
+    height: 100vh;
+  }
+  .inputBox {
+    width: 50%;
+    margin: 0 25%;
+  }
+  .inputBox input {
+    padding: 10px;
+    font-size: 13pt;
+    letter-spacing: 0.05em;
+  }
+  .inputBox span {
+    padding: 12px 10px;
+    font-size: 12pt;
+  }
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    font-size: 11pt;
+    padding: 0 10px;
+    letter-spacing: 0.05em;
+  }
+  .titlePayment {
+    color: black;
+    font-size: 21pt;
+    font-weight: lighter;
+  }
+  .total {
+    width: 40%;
+    margin: 0px 30%;
+    line-height: 60px;
+    color: black;
+    font-size: 13pt;
+  }
+  .total .price {
+    font-size: 14pt;
+    letter-spacing: 0.05em;
+  }
+
+  .btnCartContainer {
+    width: 60%;
+    margin: 0 20%;
+  }
+
+  .backCartContainer button {
+    width: 140px;
+    height: 40px;
+    font-size: 12pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+  }
+  .paymentCartContainer button {
+    width: 140px;
+    height: 40px;
+    font-size: 12pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+  }
+}
+
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .paymentContainer {
+    height: 80vh;
+    gap: 30px;
+  }
+  .inputBox {
+    width: 60%;
+    margin: 0 20%;
+  }
+  .inputBox input {
+    padding: 10px;
+    font-size: 12pt;
+    letter-spacing: 0.05em;
+  }
+  .inputBox span {
+    padding: 11px 10px;
+    font-size: 11pt;
+  }
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    font-size: 10pt;
+    padding: 0 10px;
+    letter-spacing: 0.05em;
+  }
+  .titlePayment {
+    color: black;
+    font-size: 20pt;
+    font-weight: lighter;
+  }
+  .total {
+    width: 50%;
+    margin: 0px 25%;
+    line-height: 50px;
+    color: black;
+    font-size: 12pt;
+  }
+  .total .price {
+    font-size: 13pt;
+    letter-spacing: 0.05em;
+  }
+
+  .btnCartContainer {
+    width: 50%;
+    margin: 0 25%;
+  }
+
+  .backCartContainer button {
+    width: 120px;
+    height: 40px;
+    font-size: 11pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+  }
+  .paymentCartContainer button {
+    width: 120px;
+    height: 40px;
+    font-size: 11pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+  }
+}
+
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
+  .paymentContainer {
+    height: 80vh;
+    gap: 30px;
+  }
+  .inputBox {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .inputBox input {
+    padding: 10px;
+    font-size: 11pt;
+    letter-spacing: 0.05em;
+  }
+  .inputBox span {
+    padding: 12px 10px;
+    font-size: 10pt;
+  }
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    font-size: 9pt;
+    padding: 0 10px;
+    letter-spacing: 0.05em;
+  }
+  .titlePayment {
+    color: black;
+    font-size: 19pt;
+    font-weight: lighter;
+  }
+  .total {
+    width: 80%;
+    margin: 0px 10%;
+    line-height: 50px;
+    color: black;
+    font-size: 11pt;
+  }
+  .total .price {
+    font-size: 12pt;
+    letter-spacing: 0.05em;
+  }
+
+  .btnCartContainer {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  .backCartContainer button {
+    width: 120px;
+    height: 35px;
+    font-size: 10pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
+  }
+  .paymentCartContainer button {
+    width: 120px;
+    height: 35px;
+    font-size: 10pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+  .paymentContainer {
+    height: 80vh;
+    gap: 30px;
+  }
+  .inputBox {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .inputBox input {
+    padding: 10px;
+    font-size: 10pt;
+    letter-spacing: 0.05em;
+  }
+  .inputBox span {
+    padding: 11px 10px;
+    font-size: 9pt;
+  }
+  .inputBox input:valid ~ span,
+  .inputBox input:focus ~ span {
+    font-size: 8pt;
+    padding: 0 10px;
+    letter-spacing: 0.05em;
+  }
+  .titlePayment {
+    color: black;
+    font-size: 18pt;
+    font-weight: lighter;
+  }
+  .total {
+    width: 80%;
+    margin: 0px 10%;
+    line-height: 40px;
+    color: black;
+    font-size: 10pt;
+  }
+  .total .price {
+    font-size: 11pt;
+    letter-spacing: 0.05em;
+  }
+
+  .btnCartContainer {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  .backCartContainer button {
+    width: 100px;
+    height: 30px;
+    font-size: 9pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
+  }
+  .paymentCartContainer button {
+    width: 100px;
+    height: 30px;
+    font-size: 9pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
+  }
 }

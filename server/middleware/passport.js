@@ -11,13 +11,13 @@ module.exports = (passport) => {
     },
         async (request, accessToken, refreshToken, profile, done) => {
             try {
-                if(profile.emails[0].value === process.env.EMAIL_ADMIN) {
+                if(profile.emails[0].value === process.env.EMAIL_ADMIN_DEV) {
                     return done(null, profile);
                 }else{
                     return done(null, process.env.FALSE);
                 }
             } catch (error) {
-                return done(error, false);
+                return done(error, process.env.FALSE);
             }
         }
     ));

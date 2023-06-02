@@ -1,18 +1,9 @@
-table,
-th,
-td {
-  border: 1px solid #fff;
-  text-align: center;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.img-cart {
-  width: 150px;
-  height: 100px;
-}
+
 .cartContainer {
   margin: 0;
   padding: 0;
@@ -21,116 +12,898 @@ td {
   align-items: center;
   align-content: center;
   text-align: center;
-  background-color: #2a3e53;
+  width: 100%;
   padding: 50px;
+  font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
 }
-.table {
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
+
+.amountCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-.title {
-  padding-top: 20px;
-  margin-bottom: 10px;
-  color: #00dfc4;
+.tableBtn {
+  width: 30px;
+  text-decoration: none;
+  line-height: 30px;
+  display: inline-block;
+  background-color: #cccccc;
+  font-weight: medium;
+  color: black;
+  text-align: center;
+  user-select: none;
+  border: 1px solid transparent;
+  font-size: 14px;
+  opacity: 1;
 }
-.paymentButton {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.tableBtn:hover {
+  border: 0.5px solid black;
+  cursor: pointer;
+  transition: 0.6s;
 }
-.table .nameTB {
-  width: 300px;
-  padding: 5px;
+
+/*Unseen Column*/
+@media only screen and (max-width: 800px) {
+  #unseen table td:nth-child(2),
+  #unseen table th:nth-child(2) {
+    display: none;
+  }
 }
-.table .imgTB {
-  width: 200px;
-  padding: 5px;
+
+@media only screen and (max-width: 640px) {
+  #unseen table td:nth-child(4),
+  #unseen table th:nth-child(4),
+  #unseen table td:nth-child(7),
+  #unseen table th:nth-child(7),
+  #unseen table td:nth-child(8),
+  #unseen table th:nth-child(8) {
+    display: none;
+  }
 }
-.table .priceTB {
-  width: 80px;
-  padding: 5px;
+
+/*flip-scroll*/
+
+@media only screen and (max-width: 800px) {
+  #flip-scroll .cf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  #flip-scroll * html .cf {
+    zoom: 1;
+  }
+  #flip-scroll *:first-child + html .cf {
+    zoom: 1;
+  }
+  #flip-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  #flip-scroll th,
+  #flip-scroll td {
+    margin: 0;
+    vertical-align: top;
+  }
+  #flip-scroll th {
+    text-align: left;
+  }
+  #flip-scroll table {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  #flip-scroll thead {
+    display: block;
+    float: left;
+  }
+  #flip-scroll tbody {
+    display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  #flip-scroll thead tr {
+    display: block;
+  }
+  #flip-scroll th {
+    display: block;
+    text-align: right;
+  }
+  #flip-scroll tbody tr {
+    display: inline-block;
+    vertical-align: top;
+  }
+  #flip-scroll td {
+    display: block;
+    min-height: 1.25em;
+    text-align: left;
+  }
+
+  /* sort out borders */
+
+  #flip-scroll th {
+    border-bottom: 0;
+    border-left: 0;
+  }
+  #flip-scroll td {
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  #flip-scroll tbody tr {
+    border-left: 1px solid #babcbf;
+  }
+  #flip-scroll th:last-child,
+  #flip-scroll td:last-child {
+    border-bottom: 1px solid #babcbf;
+  }
 }
-.table .amountTB {
-  width: 100px;
-  padding: 5px;
+
+/*no more table*/
+
+@media only screen and (max-width: 800px) {
+  /* Force table to not be like tables anymore */
+  #no-more-tables table,
+  #no-more-tables thead,
+  #no-more-tables tbody,
+  #no-more-tables th,
+  #no-more-tables td,
+  #no-more-tables tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  #no-more-tables thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  #no-more-tables tr {
+    border: 1px solid #ccc;
+  }
+
+  #no-more-tables td {
+    /* Behave like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: left;
+  }
+
+  #no-more-tables td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  /*
+  Label the data
+  */
+  #no-more-tables td:before {
+    content: attr(data-title);
+  }
 }
-.table .btnTB {
-  width: 50px;
+
+.btnCartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 70%;
+  margin: 50px 15% 0 15%;
 }
-.table .totalTB {
-  width: 100px;
-  padding: 5px;
-}
-.deceaseBtn {
-  width: 15px;
-  height: 20px;
-  margin-right: 5px;
-}
-.inceaseBtn {
-  width: 15px;
-  height: 20px;
-  margin-left: 5px;
-}
-.amount {
-  padding-left: 10px;
-}
-.tableBody tr td {
-  padding: 5px;
-}
-.nowrap {
-  white-space: nowrap;
-}
-.paymentButton {
-  padding: 8px;
+.backCartContainer button {
+  width: 240px;
+  height: 50px;
+  font-size: 12pt;
+  transition: 0.5s;
+  letter-spacing: 0.1em;
+  border: none;
+  background-color: rgb(228, 74, 74);
   color: white;
-  background-color: rgb(180, 137, 45);
   cursor: pointer;
 }
-.paymentButton:hover {
-  background-color: snow;
+.backCartContainer button:hover {
+  letter-spacing: 0.2em;
+  background-color: white;
+  border: 0.5px solid rgb(228, 74, 74);
+  color: rgb(228, 74, 74);
+  transform: scale(1);
+}
+.paymentCartContainer button {
+  width: 240px;
+  height: 50px;
+  font-size: 12pt;
+  transition: 0.5s;
+  letter-spacing: 0.1em;
+  border: none;
+  background-color: rgb(11, 185, 11);
+  color: white;
+  cursor: pointer;
+}
+.paymentCartContainer button:hover {
+  letter-spacing: 0.2em;
+  background-color: white;
+  color: rgb(11, 185, 11);
+  border: 0.5px solid rgb(11, 185, 11);
+  transform: scale(1);
+}
+
+table {
+  background-color: transparent;
+}
+
+th {
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: middle;
+  border-top: 1px solid #ddd;
+}
+
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+
+.table .table {
+  background-color: #fff;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+table col[class*="col-"] {
+  position: static;
+  display: table-column;
+  float: none;
+}
+
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  display: table-cell;
+  float: none;
+  vertical-align: middle;
+}
+
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+  background-color: #f5f5f5;
+}
+
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+  background-color: #dff0d8;
+}
+
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr:hover > .success,
+.table-hover > tbody > tr.success:hover > th {
+  background-color: #d0e9c6;
+}
+
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+  background-color: #d9edf7;
+}
+
+.table-hover > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td,
+.table-hover > tbody > tr:hover > .info,
+.table-hover > tbody > tr.info:hover > th {
+  background-color: #c4e3f3;
+}
+
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+  background-color: #fcf8e3;
+}
+
+.table-hover > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr:hover > .warning,
+.table-hover > tbody > tr.warning:hover > th {
+  background-color: #faf2cc;
+}
+
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+  background-color: #f2dede;
+}
+
+.table-hover > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr:hover > .danger,
+.table-hover > tbody > tr.danger:hover > th {
+  background-color: #ebcccc;
+}
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
+
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table thead tr th {
+  min-width: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #dee2e685;
   color: black;
 }
 
-.titleTB {
-  background-color: #00dfc4;
-  color: white;
+table tbody tr td {
+  font-size: 16px;
+  letter-spacing: 0.35px;
+  color: black;
+  font-weight: normal;
+  text-align: center;
+  border: 1px solid #dee2e685;
+}
+
+table tbody tr td img {
+  width: 150px;
+  height: 100px;
+}
+
+table tbody tr td .btn-table {
+  width: 130px;
+  text-decoration: none;
+  line-height: 35px;
+  display: inline-block;
+  background-color: #ff1046;
+  font-weight: medium;
+  color: #fff;
+  text-align: center;
+  user-select: none;
+  border: 1px solid transparent;
+  font-size: 14px;
+  opacity: 1;
+}
+
+table tbody tr td .btn-table:hover {
+  cursor: pointer;
+  background-color: #ff1048b3;
+}
+
+.cartContainer .title {
+  font-size: 22pt;
+  width: 100%;
+  padding: 0 20% 20px 20%;
+}
+.totalCont {
+  width: 40%;
+  margin: 30px 30%;
+  line-height: 50px;
 }
 .totalPrice {
-  background-color: red;
-  color: white;
+  font-size: 15pt;
+  letter-spacing: 0.02em;
+  border: 1px solid black;
 }
-.tableBody {
-  background-color: white;
+
+@media (max-width: 815px) {
+  .btnCartContainer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .totalCont {
+    width: 80%;
+    margin: 30px 10%;
+    line-height: 50px;
+  }
+  .totalPrice {
+    font-size: 12pt;
+  }
+  .backCartContainer button {
+    width: 120px;
+    height: 40px;
+    font-size: 10pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+  }
+  .paymentCartContainer button {
+    width: 120px;
+    height: 40px;
+    font-size: 10pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+  }
+  .amountCont {
+    justify-content: space-between;
+  }
+
+  table thead tr th {
+    min-width: 20px;
+  }
+
+  table tbody tr td {
+    min-width: 20px;
+    text-align: center;
+  }
+
+  table tbody tr td img {
+    width: 100px;
+    height: 40px;
+  }
+
+  table tbody tr td .btn-table {
+    width: 20px;
+    text-align: center;
+  }
 }
-.tableBody:nth-child(2n) {
-  background-color: rgb(230, 225, 225);
+
+@media (max-width: 950px) {
+  table thead tr th {
+    min-width: 30px;
+  }
+
+  table tbody tr td img {
+    width: 120px;
+    height: 90px;
+  }
+
+  table tbody tr td .btn-table {
+    width: 30px;
+    text-align: center;
+  }
 }
-@media screen and (max-width: 800px) {
-  .img-cart {
+
+@media (max-width: 1394px) {
+  table thead tr th {
+    min-width: 50px;
+  }
+
+  table tbody tr td .btn-table {
+    width: 60px;
+    text-align: center;
+  }
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+@media print {
+  * {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  select {
+    background: #fff !important;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .table td,
+  .table th {
+    vertical-align: middle;
+    background-color: #fff !important;
+  }
+
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+
+  .label {
+    border: 1px solid #000;
+  }
+
+  .table {
+    border-collapse: collapse !important;
+  }
+
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btnCartContainer {
+    width: 100%;
+    margin: 0;
+  }
+  .totalCont {
+    width: 70%;
+    margin: 30px 15%;
+    line-height: 40px;
+  }
+  .totalPrice {
+    font-size: 13pt;
+  }
+  .cartContainer {
+    padding: 50px 5% 50px 5%;
+  }
+  .backCartContainer button {
+    width: 120px;
+    height: 35px;
+    font-size: 11pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
+  }
+  .paymentCartContainer button {
+    width: 120px;
+    height: 35px;
+    font-size: 11pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
+  }
+  .amountCont {
+    justify-content: space-between;
+  }
+  .cartContainer .title {
+    font-size: 18pt;
+    padding: 0 20% 10px 20%;
+  }
+  .tableBtn {
+    line-height: 30px;
+    width: 30px;
+    font-size: 13pt;
+  }
+  table thead tr th {
+    min-width: 30px;
+    font-size: 11pt;
+  }
+
+  table tbody tr td {
+    min-width: 30px;
+    text-align: center;
+    font-size: 11pt;
+  }
+
+  table tbody tr td img {
+    width: 120px;
+    height: 80px;
+  }
+
+  table tbody tr td .btn-table {
+    width: 30px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .btnCartContainer {
+    width: 100%;
+    margin: 0;
+  }
+  .totalCont {
+    width: 70%;
+    margin: 30px 15%;
+    line-height: 40px;
+  }
+  .totalPrice {
+    font-size: 9pt;
+  }
+  .cartContainer {
+    padding: 50px 5% 50px 5%;
+  }
+  .backCartContainer button {
     width: 100px;
-    height: 70px;
+    height: 30px;
+    font-size: 7pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(228, 74, 74);
+    color: white;
+    cursor: pointer;
   }
-  .table .nameTB {
-    width: 200px;
-    padding: 5px;
-  }
-  .table .imgTB {
+  .paymentCartContainer button {
     width: 100px;
-    padding: 5px;
+    height: 30px;
+    font-size: 7pt;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    background-color: rgb(11, 185, 11);
+    color: white;
+    cursor: pointer;
   }
-  .table .priceTB {
-    width: 50px;
-    padding: 5px;
+  .amountCont {
+    justify-content: space-between;
   }
-  .table .amountTB {
-    width: 80px;
-    padding: 5px;
+  .cartContainer .title {
+    font-size: 16pt;
+    padding: 0 20% 10px 20%;
   }
-  .table .btnTB {
-    width: 40px;
+  .tableBtn {
+    line-height: 20px;
+    width: 20px;
+    font-size: 10pt;
   }
-  .table .totalTB {
+  table thead tr th {
+    min-width: 20px;
+    font-size: 8pt;
+  }
+
+  table tbody tr td {
+    min-width: 20px;
+    text-align: center;
+    font-size: 8pt;
+  }
+
+  table tbody tr td img {
     width: 100px;
-    padding: 5px;
+    height: 60px;
+  }
+
+  table tbody tr td .btn-table {
+    width: 20px;
+    text-align: center;
   }
 }

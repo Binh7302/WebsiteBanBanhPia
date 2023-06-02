@@ -9,10 +9,9 @@ const rateLimit = require("express-rate-limit");
 const cors = require('cors');
 
 const limiter = rateLimit({
-  windowMs: 10 * 60 * 1000, // 10 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: 150 // limit each IP to 150 requests per windowMs
 });
-
 
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
@@ -43,7 +42,6 @@ app.use(session({
   cookie: {
     secure: false,
     httpOnly: true,
-    // sameSite: 'strict',
     maxAge: 1000 * 60 * 60 * 1
   }
 }));

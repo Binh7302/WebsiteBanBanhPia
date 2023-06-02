@@ -1,11 +1,24 @@
 .aboutContainer {
   width: 100%;
   height: auto;
+  margin: 100px 0;
   background-color: white;
   justify-content: center;
   align-items: center;
+  font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
+}
+.glassAboutContainer .img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.glassAboutContainer .img img {
+  width: 400px;
 }
 
+.glassAboutContainer .img img:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
 .glassAboutContainer {
   width: 90%;
   height: auto;
@@ -18,10 +31,69 @@
   backdrop-filter: blur(4.1px);
   -webkit-backdrop-filter: blur(4.1px);
   border: 1px solid rgba(255, 255, 255, 0.19);
+  letter-spacing: 0.035em;
 }
 .glassAboutContainer h2 {
   margin-bottom: 20px;
 }
 .glassAboutContainer p {
   margin-bottom: 20px;
+}
+
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px) {
+}
+
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .glassAboutContainer .img img {
+    width: 300px;
+  }
+  .glassAboutContainer p {
+    font-size: 16pt;
+  }
+
+  .glassAboutContainer h2 {
+    font-size: 18pt;
+  }
+
+  .aboutContainer {
+    margin-top: 80px;
+  }
+}
+
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px) {
+  .glassAboutContainer .img img {
+    width: 200px;
+  }
+  .glassAboutContainer p {
+    font-size: 13pt;
+  }
+
+  .glassAboutContainer h2 {
+    font-size: 15pt;
+  }
+
+  .aboutContainer {
+    margin-top: 60px;
+  }
+}
+
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px) {
+  .glassAboutContainer .img img {
+    width: 150px;
+  }
+
+  .glassAboutContainer p {
+    font-size: 11pt;
+  }
+
+  .glassAboutContainer h2 {
+    font-size: 13pt;
+  }
+  .aboutContainer {
+    margin-top: 50px;
+  }
 }

@@ -4,13 +4,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
 }
 .bannerContainer {
   position: relative;
   width: 90%;
-  height: auto;
+  height: fit-content;
   margin-left: 5%;
-  object-fit: cover;
+  background: center no-repeat;
   margin-right: 5%;
   background-color: aquamarine;
 }
@@ -38,55 +39,104 @@
   position: absolute;
   justify-content: space-between;
 }
+
+.homeArea {
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+}
+
+.category {
+  width: 76%;
+  margin: 0 12%;
+}
+
+.category p {
+  font-size: 22pt;
+  font-weight: 500;
+  margin-bottom: 5x;
+  font-family: "Times New Roman", Times, serif;
+}
+
 .productsArea {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   flex-wrap: wrap;
-
-  width: 90%;
+  width: 76%;
   height: auto;
   background-color: white;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 12%;
 }
 .productContainer {
-  width: calc(100% / 3);
-  height: 400px;
-  padding: 20px;
+  width: calc(100% / 4);
+  height: auto;
+  padding: 15px;
+}
+
+.glassContainer .imageContainer {
+  padding: 20px 20px 0 20px;
 }
 .glassContainer .imageContainer img {
   width: 100%;
-  height: 150px;
+  height: 180px;
 }
 .glassContainer {
   width: 100%;
-  height: 360px;
-  padding: 20px;
+  height: 320px;
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.1px);
   -webkit-backdrop-filter: blur(4.1px);
   border: 1px solid rgba(255, 255, 255, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+
+.glassContainer:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  transition: 0.6s;
+}
+
 .name {
-  text-align: center;
+  width: 100%;
+  min-height: 10%;
 }
-.name h2 {
+.name p {
   color: black;
-  padding-top: 40px;
+  font-size: 11pt;
+  text-align: center;
+  font-weight: 100;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.weigth {
+  width: 100%;
+  height: 12%;
+}
+.weigth p {
+  color: black;
+  font-size: 10pt;
+  font-weight: 500;
+  text-align: center;
+}
+.price {
+  width: 100%;
+  height: 10%;
 }
 .price {
   text-align: center;
-  padding-top: 20px;
+  font-size: 14pt;
+  font-weight: 500;
+  width: 100%;
 }
 .price span {
   color: crimson;
-  padding-top: 40px;
 }
+
 .searchInputs {
   margin-top: 20px;
   display: flex;
@@ -171,31 +221,264 @@ a {
   cursor: pointer;
 }
 
-@media screen and (max-width: 800px) {
-  .productContainer {
-    width: 100%;
-    height: 500px;
+@media screen and (max-width: 1024px) {
+  .homeArea {
+    padding: 40px 0 90px 0;
   }
+  .productsArea {
+    width: 90%;
+    margin: 0 5%;
+    height: auto;
+  }
+  .category {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  .category p {
+    font-size: 20pt;
+    margin-bottom: 5px;
+  }
+
+  .productContainer {
+    width: calc(100% / 4);
+    padding: 5px;
+  }
+  .glassContainer .imageContainer {
+    padding: 20px 20px 0 20px;
+  }
+
   .glassContainer .imageContainer img {
     width: 100%;
-    height: 250px;
+    height: 160px;
   }
+
   .glassContainer {
-    height: 460px;
+    height: 300px;
   }
-  .name h2 {
-    font-size: 25pt;
+
+  .name p {
+    font-size: 11.5pt;
+  }
+
+  .weigth p {
+    font-size: 11.5pt;
+  }
+
+  .price {
+    padding-top: 5px;
+    font-size: 12.5;
   }
   .price span {
-    font-size: 15pt;
     color: crimson;
   }
+
+  .imageArea div img {
+    height: 450px;
+  }
+  .searchContainer input {
+    width: 300px;
+    font-size: 13pt;
+  }
+  .dataResult {
+    width: 300px;
+    font-size: 13pt;
+  }
+}
+
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+  .homeArea {
+    padding: 40px 0 90px 0;
+  }
+  .productsArea {
+    width: 88%;
+    margin: 0 6%;
+    height: auto;
+  }
+  .category {
+    width: 88%;
+    margin: 0 6%;
+  }
+
+  .category p {
+    font-size: 18pt;
+    margin-bottom: 5px;
+  }
+
+  .productContainer {
+    width: calc(100% / 3);
+    padding: 8px;
+  }
+  .glassContainer .imageContainer {
+    padding: 10px 10px 0 10px;
+  }
+
+  .glassContainer .imageContainer img {
+    width: 100%;
+    height: 140px;
+  }
+
+  .glassContainer {
+    height: 280px;
+  }
+
+  .name p {
+    font-size: 11pt;
+  }
+
+  .weigth p {
+    font-size: 11pt;
+  }
+
+  .price {
+    padding-top: 5px;
+    font-size: 12.5pt;
+  }
+  .price span {
+    color: crimson;
+  }
+
   .imageArea div img {
     height: 300px;
   }
   .searchContainer input {
     width: 250px;
+    font-size: 11.5pt;
   }
   .dataResult {
     width: 250px;
+    font-size: 11.5pt;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homeArea {
+    padding: 30px 0 80px 0;
+  }
+  .productsArea {
+    width: 95%;
+    margin: 0 2.5%;
+    height: auto;
+  }
+  .category {
+    width: 95%;
+    margin: 0 2.5%;
+  }
+
+  .category p {
+    font-size: 18pt;
+    margin-bottom: 0;
+  }
+
+  .productContainer {
+    width: calc(100% / 2);
+    padding: 8px;
+  }
+  .glassContainer .imageContainer {
+    padding: 10px 10px 0 10px;
+  }
+
+  .glassContainer .imageContainer img {
+    width: 100%;
+    height: 120px;
+  }
+  .glassContainer {
+    height: 240px;
+  }
+
+  .name p {
+    font-size: 8.5pt;
+  }
+
+  .weigth p {
+    font-size: 8.5pt;
+  }
+
+  .price {
+    padding-top: 5px;
+    font-size: 10.5pt;
+  }
+  .price span {
+    color: crimson;
+  }
+  .imageArea {
+    height: 250px;
+  }
+  .imageArea div img {
+    height: 250px;
+  }
+  .searchContainer input {
+    width: 220px;
+    font-size: 9.5pt;
+  }
+  .dataResult {
+    width: 220px;
+    font-size: 9.5pt;
+  }
+}
+
+@media (max-width: 320px) {
+  .homeArea {
+    padding: 30px 0 80px 0;
+  }
+  .productsArea {
+    width: 95%;
+    margin: 0 2.5%;
+    height: auto;
+  }
+  .category {
+    width: 95%;
+    margin: 0 2.5%;
+  }
+
+  .category p {
+    font-size: 16pt;
+    margin-bottom: 0;
+  }
+
+  .productContainer {
+    width: calc(100% / 2);
+    padding: 5px;
+  }
+  .glassContainer .imageContainer {
+    padding: 10px 10px 0 10px;
+  }
+  .glassContainer .imageContainer img {
+    width: 100%;
+    height: 80px;
+  }
+  .glassContainer {
+    height: 190px;
+  }
+
+  .name p {
+    font-size: 8pt;
+  }
+
+  .weigth p {
+    font-size: 8pt;
+  }
+
+  .price {
+    padding-top: 8px;
+    font-size: 10pt;
+  }
+  .price span {
+    color: crimson;
+  }
+  .imageArea {
+    height: 180px;
+  }
+  .imageArea div img {
+    height: 180px;
+  }
+  .searchContainer input {
+    width: 200px;
+    font-size: 9pt;
+  }
+  .dataResult {
+    width: 200px;
+    font-size: 9pt;
+  }
 }

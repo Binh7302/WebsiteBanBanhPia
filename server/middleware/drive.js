@@ -2,11 +2,11 @@ require('dotenv').config();
 const { google } = require('googleapis');
 const stream = require('stream');
 
-const CLIENT_ID = process.env.CLIENT_ID_DRIVE;
-const CLIENT_SECRET = process.env.CLIENT_SECRET_DRIVE;
+const CLIENT_ID = process.env.CLIENT_ID_DRIVE_DEV || process.env.CLIENT_ID_DRIVE;
+const CLIENT_SECRET = process.env.CLIENT_SECRET_DRIVE_DEV || process.env.CLIENT_SECRET_DRIVE;
 const REDIRECT_URI = process.env.REDIRECT_URI_DRIVE;
-const REFRESH_TOKEN = process.env.REFRESH_TOKEN_DRIVE;
-const FOLDER_DRIVE = process.env.FOLDER_DRIVE;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN_DRIVE_DEV || process.env.REFRESH_TOKEN_DRIVE;
+const FOLDER_DRIVE = process.env.FOLDER_DRIVE_DEV || process.env.FOLDER_DRIVE;
 const oauth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 const drive = google.drive({

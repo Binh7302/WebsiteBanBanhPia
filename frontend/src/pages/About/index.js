@@ -1,5 +1,7 @@
 import "./About.css";
-
+import banner1 from "/public/images/logo/banner1.jpg";
+import banner2 from "/public/images/logo/banner2.jpg";
+import banner3 from "/public/images/logo/banner3.jpg";
 function About() {
   return (
     <div className="aboutContainer">
@@ -33,6 +35,9 @@ function About() {
           trên sóng nước Vàm cỏ Long An thanh bình hôm nay. Lịch sử luôn là sự
           tiếp nối… và tự hào!
         </p>
+        <div className="img">
+          <img src={banner3} alt="new" />
+        </div>
         <h2>
           Truyền thống ăn chay của Đàng Trong - Sài gòn, Lục Tỉnh Nam Bộ và Lễ
           Hội Làm Chay ở Tầm Vu, Châu Thành Long An :
@@ -50,6 +55,9 @@ function About() {
           hệ duy trì mãi đến hôm nay, thành một lễ hội truyền thống đã có trên
           150 năm.
         </p>
+        <div className="img">
+          <img src={banner2} alt="new" />
+        </div>
         <h2>Truyền thống, hiện đại, sứ mệnh và tầm nhìn:</h2>
         <p>
           Bánh Pía chay Long An là sự kết nối truyền thống và hiện đại ,cùng với
@@ -58,6 +66,9 @@ function About() {
           khách hàng và chính quyền ở quê nhà, một nhản hàng thực phẩm chay,
           bánh pía chay, đã được sản xuất tại Long An.
         </p>
+        <div className="img">
+          <img src={banner1} alt="new" />
+        </div>
         <h2>Các loại bánh pía chay:</h2>
         <p>
           1-Bánh Pía Đậu xanh sầu riêng.
